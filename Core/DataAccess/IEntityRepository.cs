@@ -1,4 +1,4 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +6,14 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccsess.Abstract
+namespace Core.DataAccsess
+
+    //Core karmanı referans almaz.
 {       
     //Generic constraint
     //class = referans tip olmalı.
-    //IEntity : IEntity iplamente etmeli.
-    //new() : new lenebilir olmalı.
+    //IEntity : IEntity olmalı ya da iplamente etmeli.
+    //new() : new' lenebilir olmalı.
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
 

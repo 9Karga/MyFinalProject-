@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Customer:IEntity
+    public class Order:IEntity
     {
-        //veri tabanı string tuttuğu için string yaptık.
+        public int OrderId { get; set; }
         public string CustomerId { get; set; }
-        public string ContactName { get; set; }
-        public string CompanyName { get; set; }
-        public string City { get; set; }
+        public int EmpoyeeId  { get; set; }
+        public DateTime OrdetDate { get; set; }
+        public string ShipCity { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DataAccsess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +19,11 @@ namespace DataAccsess.Concrete.InMemory
         {
             _Products = new List<Product> 
             {
-            new Product{ProductId=1,CategoryId=1,ProductName="Bardak",UnitPrice=15,UnitInStock=15 },
-            new Product{ProductId=2,CategoryId=1,ProductName="Kamera",UnitPrice=500,UnitInStock=3 },
-            new Product{ProductId=3,CategoryId=2,ProductName="Telefon",UnitPrice=15,UnitInStock=2 },
-            new Product{ProductId=4,CategoryId=2,ProductName="Klavye",UnitPrice=15,UnitInStock=65 },
-            new Product{ProductId=5,CategoryId=2,ProductName="Fare",UnitPrice=15,UnitInStock=1 }
+            new Product{ProductId=1,CategoryId=1,ProductName="Bardak",UnitPrice=15,UnitsInStock=15 },
+            new Product{ProductId=2,CategoryId=1,ProductName="Kamera",UnitPrice=500,UnitsInStock=3 },
+            new Product{ProductId=3,CategoryId=2,ProductName="Telefon",UnitPrice=15,UnitsInStock=2 },
+            new Product{ProductId=4,CategoryId=2,ProductName="Klavye",UnitPrice=15,UnitsInStock=65 },
+            new Product{ProductId=5,CategoryId=2,ProductName="Fare",UnitPrice=15,UnitsInStock=1 }
             };
         }
         public void Add(Product product)
@@ -59,12 +60,17 @@ namespace DataAccsess.Concrete.InMemory
             return _Products.Where(p => p.CategoryId == categoryId).ToList();
         }
 
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Product product)
         {
             Product productToUpdate = _Products.SingleOrDefault(p => p.ProductId == product.ProductId);
             productToUpdate.ProductName = product.ProductName;
             productToUpdate.CategoryId = product.CategoryId;
-            productToUpdate.UnitInStock = product.UnitInStock;
+            productToUpdate.UnitsInStock = product.UnitsInStock;
             productToUpdate.UnitPrice = product.UnitPrice;
         }
     }
