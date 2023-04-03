@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace DataAccsess.Concrete.EntityFramework
 {
     //Context : Db tabloları ile proje classlarını bağlamak.
+    //override OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
     public class NorthwindContext:DbContext
     {

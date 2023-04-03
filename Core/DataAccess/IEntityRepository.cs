@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.DataAccsess
 
-    //Core karmanı referans almaz.
+    //Core katmanı referans almaz.
 {       
     //Generic constraint
     //class = referans tip olmalı.
