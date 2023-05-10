@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController] //ATTRIBUTE
     public class ProductsController : ControllerBase
     {
         //Loosely coupled -- Gevşek bağlılık

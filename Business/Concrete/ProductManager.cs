@@ -1,10 +1,14 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccsess.Abstract;
 using DataAccsess.Concrete.InMemory;
 using Entities.Concrete;
 using Entities.DTOs;
+using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +25,15 @@ namespace Business.Concrete
         {
             _productDal = productDal;
         }
-
+        [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
-            if (product.ProductName.Length < 2)
-            {
-                //magic strings
-                return new ErrorResult(Messages.ProductNameInvalid);
-            }   
+            //Business codes
+            //Validation
+
             _productDal.Add(product);
 
+            //magic strings
             return new SuccessResult(Messages.ProductAdded);
 
         }
@@ -43,7 +46,7 @@ namespace Business.Concrete
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
             return new SuccessDataResult<List<Product>>(_productDal.GetAll());
-            
+
         }
 
         public IDataResult<List<Product>> GetAllByCategoryId(int id)
@@ -67,7 +70,7 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult < List<ProductDetailDto>>(_productDal.GetProductDetails());
+            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
         }
     }
 }
