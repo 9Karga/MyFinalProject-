@@ -30,6 +30,7 @@ namespace Business.Concrete
         }
 
         //Validation
+        //Claim
         [ValidationAspect(typeof(ProductValidator))]
         public IResult Add(Product product)
         {
