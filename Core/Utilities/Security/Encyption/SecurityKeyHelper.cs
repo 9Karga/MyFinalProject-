@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Utilities.Security.Encryption
+namespace Core.Utilities.Security.Encyption
 {
     public class SecurityKeyHelper
     {
